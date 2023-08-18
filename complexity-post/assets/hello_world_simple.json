@@ -1,0 +1,50 @@
+{
+  "options": [
+    {
+      "path": "TestModel.hello",
+      "type": "String",
+      "value": "Hello World",
+      "enable": {
+        "operator": "==",
+        "operands": [
+          "TestModel.allow_hello",
+          true
+        ]
+      },
+      "options": []
+    },
+    {
+      "path": "TestModel.allow_hello",
+      "type": "boolean",
+      "value": "true",
+      "enable": "true",
+      "options": []
+    },
+    {
+      "path": "TestModel.subModel",
+      "type": "SubModelA",
+      "value": "true",
+      "enable": "true",
+      "options": [
+        "SubModelA"
+      ]
+    },
+    {
+      "path": "SubModelA",
+      "type": "SubModelA",
+      "value": "true",
+      "enable": "true",
+      "options": [
+        "SubModelA.nestedParam"
+      ]
+    },
+    {
+      "path": "SubModelA.nestedParam",
+      "type": "boolean",
+      "value": "true",
+      "enable": "true"
+    }
+  ]
+}
+
+

@@ -1,0 +1,112 @@
+{
+    "within": "ExamplePackage",
+    "class_definition": [
+      {
+        "class_prefixes": "model",
+        "class_specifier": {
+          "long_class_specifier": {
+            "identifier": "HelloModel",
+            "description_string": "Test Model",
+            "composition": {
+              "element_list": [
+                {
+                  "component_clause": {
+                    "type_prefix": "parameter",
+                    "type_specifier": "String",
+                    "component_list": [
+                      {
+                        "declaration": {
+                          "identifier": "hello",
+                          "modification": {
+                            "equal": true,
+                            "expression": {
+                              "simple_expression": "\"World\""
+                            }
+                          }
+                        },
+                        "description": {
+                          "description_string": "Hello",
+                          "annotation": [
+                            {
+                              "element_modification_or_replaceable": {
+                                "element_modification": {
+                                  "name": "Dialog",
+                                  "modification": {
+                                    "class_modification": [
+                                      {
+                                        "element_modification_or_replaceable": {
+                                          "element_modification": {
+                                            "name": "enable",
+                                            "modification": {
+                                              "equal": true,
+                                              "expression": {
+                                                "simple_expression": {
+                                                  "logical_expression": {
+                                                    "logical_or": [
+                                                      {
+                                                        "logical_and": [
+                                                          {
+                                                            "arithmetic_expressions": [
+                                                              {
+                                                                "name": "allow_hello"
+                                                              },
+                                                              {
+                                                                "name": "true"
+                                                              }
+                                                            ],
+                                                            "relation_operator": "=="
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "component_clause": {
+                    "type_prefix": "parameter",
+                    "type_specifier": "Boolean",
+                    "component_list": [
+                      {
+                        "declaration": {
+                          "identifier": "allow_hello",
+                          "modification": {
+                            "equal": true,
+                            "expression": {
+                              "simple_expression": "true"
+                            }
+                          }
+                        },
+                        "description": {
+                          "description_string": "Enable"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "modelicaFile": "TestModel.mo",
+    "fullMoFilePath": "/app/TestModel.mo",
+    "checksum": "3b689bbc67efa49ccabac1b6349811f8"
+  }
+  
