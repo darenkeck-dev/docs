@@ -296,7 +296,19 @@ This behavior can be implemented using a [pre-order tree traversal](https://en.w
 The logic around tree traversal and the process of building up 'scope' was slightly more complicated.
 
 - We ignored class definitions when building instance paths. As part of that we had to indicate in the simple schema what nodes were class definitions
-- Child node traversal was dependency driven. When a variable was found that was not in the scope dictionary, we find the branch that it does exist on and traverse that first.
+- Child node traversal was dependency driven. When a variable is referenced that is not yet in the scope dictionary, we jump to the dependency's branch first. For our example, when the variable `subModel.nestedBoolean` is reached in the middle branch and not found in scope, a recursive call is made to process the `TestModel.subModel` branch first.
+
+```mermaid
+flowchart TD
+    TestModel --- idOne((1st))
+    idOne --> idHello(TestModel.hello='hello world')
+    TestModel --- idThree((3rd))
+    idThree --> idEnable(TestModel.enable=subModel.nestedBoolean)
+    TestModel --- idTwo((2nd))
+    idTwo --> idSubModel(TestModel.subModel: nestedBoolean=true)
+    idSubModel --> idSubModelDef(SubFolder.SubModel)
+    idSubModelDef --> idNestedParam(SubFolder.SubModel.nestedBoolean=false)
+```
 
 ### Generating UI and Incorporating User Input
 
@@ -322,7 +334,9 @@ Templates provided as an expansive AST are converted to a paired down 'simple sc
 
 We are able to understand both what to do with the operator ('==') and operands ('allow_hello' and 'true')
 
-The simple schema can be interpreted to generate all variables and definitions currently in scope, through which the operand 'allow_hello' can be boiled down to an actual value and enable/disable UI based on the
+The simple schema can be interpreted to generate all variables and definitions currently in scope, meaning we can resolve the value 'allow_hello'.
+
+Finally, that value can be used to conditionally enable our Hello World UI.
 
 ![](enable_disable.gif)
 
