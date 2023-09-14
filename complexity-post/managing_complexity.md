@@ -130,7 +130,7 @@ The parser steps through the AST and, as types and parameters are discovered, it
 }
 ```
 
-In our 'Hello World' example, we find the `String` and `boolean` primitive types. Classes can also be assigned to parameters, e.g. `SubFolder.MyCustomClass`. Modelica has multiple implicit strategies for finding type definitions. For example, `SubFolder.MyCustomClass` could imply that `MyCustomClass` is defined in a file located at `./SubFolder/MyCustomClass.mo`. The parser implements these rules, finds the appropriate file, and parses the definition into the dictionary.
+In our 'Hello World' example, we find the `String` and `boolean` primitive types. Classes can also be assigned to parameters, e.g. `SubFolder.MyCustomClass`. Modelica has multiple implicit strategies for finding type definitions. For example, `SubFolder.MyCustomClass` could imply that `MyCustomClass` is defined in a file located at `./SubFolder/MyCustomClass.mo`. The parser implements these rules, finds the appropriate file, and parses the definition into the dictionary. This dictionary can be easily serialized into a single file, with the previous file tree being flattened into keys, e.g. `./SubFolder/MyCustomClass.mo` becomes `SubFolder.MyCustomClass`.
 
 ### Creating a Tree Representation: Making Relations Explicit
 
@@ -350,7 +350,7 @@ Conversely, the wrong terms can be a near constant source of obfuscation, trippi
 
 Tests offload thinking by allowing your code contracts and corner cases to be enshrined in nice re-runnable tests. When implementing some new behavior, you can primarily focus on that specific feature, without the background noise of special cases.
 
-Tests are also a good way to keep you headspace thinking in terms of interfaces. Tests are clients of the code you are writing, so you immediately test out the interface you are establishing. Additionally, when an interface needs to be changed, you get to double check that change by updating the appropriate test.
+Tests are also a good way to keep your headspace thinking in terms of interfaces. Tests are clients of the code you are writing, so you immediately test out the interface you are establishing. Additionally, when an interface needs to be changed, you get to double check that change by updating the appropriate test.
 
 A good test suite allows you to take bigger risks with your code.
 
