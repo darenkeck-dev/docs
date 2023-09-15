@@ -130,7 +130,7 @@ The parser steps through the AST and, as types and parameters are discovered, it
 }
 ```
 
-In our 'Hello World' example, we find the `String` and `boolean` primitive types. Classes can also be assigned to parameters, e.g. `SubFolder.MyCustomClass`. Modelica has multiple implicit strategies for finding type definitions. For example, `SubFolder.MyCustomClass` could imply that `MyCustomClass` is defined in a file located at `./SubFolder/MyCustomClass.mo`. The parser implements these rules, finds the appropriate file, and parses the definition into the dictionary. This dictionary can be easily serialized into a single file, with the previous file tree being flattened into keys, e.g. `./SubFolder/MyCustomClass.mo` becomes `SubFolder.MyCustomClass`.
+In our 'Hello World' example, we find the `String` and `boolean` primitive types. Classes can also be assigned to parameters, e.g. `SubFolder.MyCustomClass`. Modelica has multiple implicit strategies for finding type definitions. For example, `SubFolder.MyCustomClass` could imply that `MyCustomClass` is defined in a file located at `./SubFolder/MyCustomClass.mo`. The parser implements these rules, finds the appropriate file, and parses the definition into the dictionary. What was previously a file tree is now a single, easily serializable dictionary with file tree structure (`./SubFolder/MyCustomClass.mo`) flattened into a key (`SubFolder.MyCustomClass`).
 
 ### Creating a Tree Representation: Making Relations Explicit
 
