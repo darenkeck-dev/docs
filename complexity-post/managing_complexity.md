@@ -161,7 +161,7 @@ After iterating through the parameter list, the dictionary of simplified types l
 {
   "TestModel.hello": { "type": "String" },
   "TestModel.enable": { "type": "Boolean" },
-  "TestModel.subModel": { "type": "SubFolder.SubModel" }, // <--
+  "TestModel.subModel": { "type": "SubFolder.SubModel" },
   "SubFolder.SubModel": {
     "type": "SubFolder.SubModel",
     "children": ["SubFolder.SubModel.nestedParam"]
